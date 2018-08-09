@@ -1,14 +1,17 @@
+import path from 'path';
 import webpack from 'webpack';
 import wmerge from 'webpack-merge';
 
 import baseconfig from './webpack.config.base.js';
 
-
 const DEV_CFG = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: [
+      path.join(__dirname, './dist'),
+      path.join(__dirname, './api-doc')
+    ],
     hot: true
   },
 

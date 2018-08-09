@@ -2,9 +2,9 @@
   "name": "swagger-page",
   "version": "1.0.0",
   "description": "A swagger page for daily api doc development",
-  "main": "index.js",
+  "main": "./src/script/entry/index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "BABEL_ENV=webpack webpack-dev-server --open",
     "release": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,11 +20,21 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "babel-register": "^6.26.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.22.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "swagger-ui": "^3.18.0",
+    "walk": "^2.3.14"
   }
 }
