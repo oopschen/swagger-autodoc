@@ -1,4 +1,5 @@
 import path from 'path';
+import os from 'os';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import walk from 'walk';
 import {DefinePlugin} from 'webpack';
@@ -69,5 +70,7 @@ export default ({
     new DefinePlugin({
       DOC_APIS: JSON.stringify(docs)
     })
-  ]
+  ],
+
+  parallelism: os.cpus().length
 });
