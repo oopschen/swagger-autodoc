@@ -1,15 +1,21 @@
 import SwaggerUI from 'swagger-ui';
 import 'swagger-ui/dist/swagger-ui.css'
 import StandalonePreset from 'swagger-ui/dist/swagger-ui-standalone-preset.js'
+import axios from 'axios';
 
-// TODO request apis
+
 const main = () => {
-  SwaggerUI({
-    dom_id: '#body',
-    deepLinking: true,
-    urls: apis,
-    presets: [SwaggerUI.presets.apis, StandalonePreset],
-    layout: 'StandaloneLayout'
+  axios.get('/api-doc-meta').
+    then(response => {
+
+    SwaggerUI({
+      dom_id: '#body',
+      deepLinking: true,
+      urls: response.data,
+      presets: [SwaggerUI.presets.apis, StandalonePreset],
+      layout: 'StandaloneLayout'
+    });
+
   });
 };
 

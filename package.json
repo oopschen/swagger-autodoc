@@ -36,8 +36,10 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "swagger-ui": "^3.18.0",
     "walk": "^2.3.14"
   }

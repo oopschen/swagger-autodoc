@@ -2,6 +2,7 @@ import walk from 'walk';
 import path from 'path';
 import Koa from 'koa';
 import Router from 'koa-router';
+import static_router from 'koa-static';
 
 
 const convertFile2ApiUrl = api => {
@@ -48,7 +49,10 @@ router.get('/api-doc-meta', async (ctx, next) => {
 
 });
 
-
 app.use(router.routes())
   .use(router.allowedMethods());
+
+// static
+app.use(static_router(path.join(__dirname, '..', 'dist', 'swagger')));
+app.use(static_router(path.join(__dirname, '..', 'api-doc')));
 app.listen(8080);
