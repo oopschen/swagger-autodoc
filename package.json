@@ -5,8 +5,9 @@
   "main": "./src/script/entry/index.js",
   "scripts": {
     "start": "BABEL_ENV=webpack webpack-dev-server --open",
-    "release": "NODE_ENV=production webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "webpack -p",
+    "release-server": "BABEL_ENV=server babel webpack.config.server.js -o webpack.config.server.gen.js &&  webpack -p --config=./webpack.config.server.gen.js",
+    "run-server": "BABEL_ENV=server babel webpack.config.server.js -o webpack.config.server.gen.js && BABEL_ENV=server-webpack webpack  -p --config=./webpack.config.server.gen.js && node ./dist/server/server.js"
   },
   "keywords": [
     "swagger",
@@ -19,6 +20,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -34,6 +36,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "koa": "^2.5.2",
+    "koa-router": "^7.4.0",
     "swagger-ui": "^3.18.0",
     "walk": "^2.3.14"
   }
