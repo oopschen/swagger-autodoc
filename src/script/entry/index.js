@@ -1,10 +1,9 @@
-import SwaggerUI from 'swagger-ui';
 import 'swagger-ui/dist/swagger-ui.css'
-import StandalonePreset from 'swagger-ui/dist/swagger-ui-standalone-preset.js'
 import axios from 'axios';
 
+import('../swagger-ui.js')
+  .then(({SwaggerUI, StandalonePreset}) => {
 
-const main = () => {
   axios.get('/api-doc-meta').
     then(response => {
 
@@ -17,6 +16,5 @@ const main = () => {
     });
 
   });
-};
 
-main();
+});
