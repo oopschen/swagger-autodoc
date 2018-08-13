@@ -6,7 +6,7 @@
   "scripts": {
     "start": "BABEL_ENV=webpack webpack-dev-server --open",
     "release": "webpack -p",
-    "release-server": "BABEL_ENV=server babel webpack.config.server.js -o webpack.config.server.gen.js &&  webpack -p --config=./webpack.config.server.gen.js",
+    "release-server": "BABEL_ENV=server babel webpack.config.server.js -o webpack.config.server.gen.js &&  BABEL_ENV=server-webpack webpack -p --config=./webpack.config.server.gen.js",
     "run-server": "BABEL_ENV=server babel webpack.config.server.js -o webpack.config.server.gen.js && BABEL_ENV=server-webpack webpack  -p --config=./webpack.config.server.gen.js && node ./dist/server/server.js"
   },
   "keywords": [
