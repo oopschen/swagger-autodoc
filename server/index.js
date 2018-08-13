@@ -4,7 +4,6 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import static_router from 'koa-static';
 
-
 const convertFile2ApiUrl = api => {
   let name = api.replace(/\//ig, '-').replace(/\..+$/ig, '');
   let url = '/' + api;
@@ -40,8 +39,12 @@ const walkDir = async (sourceDir, callback) => {
 const app = new Koa();
 const router = new Router();
 
+let base_doc = process.env.DOC_BASE ? path.normalize(process.env.DOC_BASE) : path.join(__dirname, '..', 'api-doc'),
+    base_static = process.env.WEB_BASE ? path.normalize(process.env.WEB_BASE) : path.join(__dirname, '..', 'dist', 'swagger')
+  ;
+
 router.get('/api-doc-meta', async (ctx, next) => {
-  await walkDir(path.join(__dirname, '..', 'api-doc'), async (files) => {
+  await walkDir(base_doc, async (files) => {
     ctx.status = 200;
     ctx.body = JSON.stringify(files);
     await next();
@@ -53,6 +56,6 @@ app.use(router.routes())
   .use(router.allowedMethods());
 
 // static
-app.use(static_router(path.join(__dirname, '..', 'dist', 'swagger')));
-app.use(static_router(path.join(__dirname, '..', 'api-doc')));
+app.use(static_router(base_static));
+app.use(static_router(base_doc));
 app.listen(8080);
