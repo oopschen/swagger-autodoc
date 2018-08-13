@@ -1,0 +1,39 @@
+{
+  "env": {
+    "webpack": {
+      "presets": ["env", "stage-2"]
+    },
+    "server": {
+      "presets": [
+        "env",
+        "stage-1"
+      ]
+    },
+    "server-webpack": {
+      "presets": [
+        "env",
+        "stage-1"
+      ],
+
+      "plugins": [
+        "transform-runtime"
+      ]
+    }
+  },
+
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "cover 99.5%",
+            "chrome > 52",
+            "ie > 9"
+          ]
+        }
+      }
+    ],
+    "stage-1"
+  ]
+}
