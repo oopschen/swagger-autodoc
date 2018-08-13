@@ -7,7 +7,7 @@ RUN cd /mnt/src && npm install && npm run release \
 from node:8-alpine
 WORKDIR /var/lib/swagger-autodoc
 ENV DOC_BASE=/var/lib/swagger-autodoc/apis
-ENV WEB_BASE=/var/lib/swagger-autodoc/dist/dist/swagger
+ENV WEB_BASE=/var/lib/swagger-autodoc/dist/swagger
 RUN mkdir -p /var/lib/swagger-autodoc/{dist, node_modules}
 COPY --from=build /mnt/src/dist/ /var/lib/swagger-autodoc/dist/
 RUN chown -R node:node /var/lib/swagger-autodoc
