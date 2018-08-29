@@ -1,6 +1,11 @@
 # swagger-autodoc
 A swagger dockument reader site. 
 
+## Features
+
+1. Automatically search for documents in directory **/var/lib/swagger-autodoc/apis**.
+2. Use Swagger UI for page rendering.
+
 # Develop web
 
 ```
