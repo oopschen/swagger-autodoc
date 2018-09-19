@@ -28,7 +28,7 @@ npm run release-server
 # Docker Usage
 
 ```
-docker run --namne autodoc -p 8080:8080 -v $(pwd):/var/lib/swagger-autodoc/apis
+docker run --namne autodoc -p 8080:8080 -v $(pwd):/var/lib/swagger-autodoc/apis oopschen/swagger-autodoc
 ```
 
 
