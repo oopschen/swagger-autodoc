@@ -12,7 +12,12 @@ const DEV_CFG = {
       path.join(__dirname, './dist'),
       path.join(__dirname, './api-doc')
     ],
-    hot: true
+    hot: true,
+    proxy: {'/api-doc-meta': {
+      "target": `http://${process.env.PROJECT_BACKEND_HOST || "localhost:8082"}`,
+      "changeOrigin": true,
+      "secure":false
+    }}
   },
 
   plugins: [
