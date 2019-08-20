@@ -12,7 +12,10 @@ import('../swagger-ui.js')
       deepLinking: true,
       urls: response.data,
       presets: [SwaggerUI.presets.apis, StandalonePreset],
-      layout: 'StandaloneLayout'
+      layout: 'StandaloneLayout',
+      showCommonExtensions: true,
+      showExtensions: true,
+      defaultModelExpandDepth: 3
     });
 
   });

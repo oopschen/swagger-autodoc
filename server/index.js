@@ -30,6 +30,8 @@ const walkDir = async (sourceDir, callback) => {
   if (!callback) {
     return;
   }
+
+  docs = 1 > docs.length ? [{name: "petstore", url: "https://petstore.swagger.io/v2/swagger.json"}] : docs
   await callback(docs);
 };
 // end
