@@ -4,11 +4,10 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import static_router from 'koa-static';
 
-const convertFile2ApiUrl = api => {
-  let name = api.replace(/\//ig, '-').replace(/\..+$/ig, '');
-  let url = '/' + api;
-  return {name, url};
-};
+const convertFile2ApiUrl = api => ({
+  name: api.replace(/(.*(\/.*)?)\.(yml|yaml|json)$/ig, '$1').replace(/\//ig, '-'),
+  url: '/' + api
+});
 
 
 const walkDir = async (sourceDir, callback) => {
